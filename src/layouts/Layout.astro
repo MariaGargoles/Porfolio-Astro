@@ -7,7 +7,7 @@ const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="light">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description" />
@@ -15,11 +15,29 @@ const { title } = Astro.props;
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+		<script>
+			// Detecta el tema preferido y aplica al cargar la página
+			(function () {
+				const theme = localStorage.getItem('theme') || 'light';
+				document.documentElement.className = theme;
+			})();
+		</script>
 	</head>
 	<body>
+		<button id="theme-toggle">Toggle Theme</button>
 		<slot />
+		<script>
+			/* Gestiona el cambio entre temas claro y oscuro, mas adelante aun no tenemos el boton creado
+			    document.getElementById('theme-toggle').addEventListener('click', () => {
+				const currentTheme = document.documentElement.className;
+				const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+				document.documentElement.className = newTheme;
+				localStorage.setItem('theme', newTheme);
+			});*/
+		</script>
 	</body>
 </html>
+
 <style is:global>
 	:root {
 		--accent: 136, 58, 234;
@@ -34,17 +52,37 @@ const { title } = Astro.props;
 	}
 	html {
 		font-family: system-ui, sans-serif;
-		background: #13151a;
 	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
+	body {
+		margin: 0;
+		padding: 0;
+	}
+
+	/* Modo claro */
+	.light {
+		--background-color: #ffffff;
+		--text-color: #000000;
+		background: var(--background-color);
+		color: var(--text-color);
+	}
+
+	/* Modo oscuro */
+	.dark {
+		--background-color: #13151a;
+		--text-color: #ffffff;
+		background: var(--background-color);
+		color: var(--text-color);
+	}
+
+	/* Botón de cambio de tema */
+	#theme-toggle {
+		position: fixed;
+		top: 10px;
+		right: 10px;
+		padding: 10px 20px;
+		background-color: var(--accent-light);
+		border: none;
+		border-radius: 5px;
+		cursor: pointer;
 	}
 </style>
