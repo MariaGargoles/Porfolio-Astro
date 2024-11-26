@@ -2,6 +2,7 @@
 interface Props {
 	title: string;
 }
+import Header from '../components/HeaderComponent/header.astro';
 
 const { title } = Astro.props;
 ---
@@ -21,20 +22,14 @@ const { title } = Astro.props;
 				const theme = localStorage.getItem('theme') || 'light';
 				document.documentElement.className = theme;
 			})();
+			
 		</script>
 	</head>
 	<body>
-		<button id="theme-toggle">Toggle Theme</button>
+		<Header/>
+		
 		<slot />
-		<script>
-			/* Gestiona el cambio entre temas claro y oscuro, mas adelante aun no tenemos el boton creado
-			    document.getElementById('theme-toggle').addEventListener('click', () => {
-				const currentTheme = document.documentElement.className;
-				const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-				document.documentElement.className = newTheme;
-				localStorage.setItem('theme', newTheme);
-			});*/
-		</script>
+		
 	</body>
 </html>
 

@@ -1,0 +1,13 @@
+---
+import { initThemeToggle } from "./theme-toggle";
+import { FaRegMoon } from "react-icons/fa";
+
+if (typeof window !== "undefined") {
+  initThemeToggle();
+}
+
+---
+
+<button id="theme-toggle" aria-label="Toggle light/dark mode" class="">
+  <FaRegMoon />
+</button>
