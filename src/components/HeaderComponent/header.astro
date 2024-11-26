@@ -2,6 +2,8 @@
 
 import Buttonlight from '../DarkLightButtonComponent/buttonlight.astro';
 import { FaLaptopCode } from "react-icons/fa";
+import DCVButton  from "../DownloadCVButton/DCVButton.astro"
+
 ---
 
 <header class="flex justify-between items-center px-4 py-2">
@@ -12,10 +14,12 @@ import { FaLaptopCode } from "react-icons/fa";
   <nav class="flex-1 flex justify-evenly gap-4 items-center">
     <a href="/About" class="hover:underline">About</a>
     <a href="/Projects" class="hover:underline">Projects</a>
-    <a href="/Contact" class="hover:underline">Contact</a>
-    <a href="Download" class="hover:underline">Download CV</a>
+    <a href="Download" class="hover:underline"></a>
+    
   </nav>
-
+<div class="flex-2 flex justify-center gap-4 items-center">
   
+  <DCVButton />
   <Buttonlight class="hover:underline" />
+</div>  
 </header>

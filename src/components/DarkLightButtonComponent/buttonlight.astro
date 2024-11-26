@@ -1,32 +1,25 @@
 ---
 import { FaRegMoon } from "react-icons/fa";
 
-// Lógica para manejar el cambio de tema
-if (typeof window !== "undefined") {
-  const savedTheme = localStorage.getItem('theme') || 'light';
-  document.documentElement.classList.remove('light', 'dark');
-  document.documentElement.classList.add(savedTheme);
-}
-
-const handleClick = () => {
-  const html = document.documentElement; 
-  const currentTheme = html.classList.contains('light') ? 'dark' : 'light';
-
-  // Cambia la clase en el elemento <html>
-  html.classList.remove('light', 'dark');
-  html.classList.add(currentTheme);
-
-  // Guarda el tema actual en localStorage para persistencia
-  localStorage.setItem('theme', currentTheme);
-};
 ---
+<script>
+  const button = document.getElementById("theme-toggle");
+  if (button) {
+    button.addEventListener("click", () => {
+      import("../../utils/theme-toggle.ts").then(module => {
+        module.handleClick();
+      });
+    });
+  }
+</script>
+
 
 <button
   id="theme-toggle"
   aria-label="Toggle light/dark mode"
   class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-800 transition"
-  onclick={handleClick} 
-  client:load 
 >
   <FaRegMoon />
 </button>
+
+
