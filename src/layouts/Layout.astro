@@ -35,49 +35,41 @@ const { title } = Astro.props;
 
 <style is:global>
 	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
+	  --accent: 136, 58, 234;
+	  --accent-light: 224, 204, 250;
+	  --accent-dark: 49, 10, 101;
+  
+	  /* Fuentes */
+	  --font-family: 'Inter', sans-serif;
 	}
-	html {
-		font-family: system-ui, sans-serif;
+  
+	html.light {
+	  --background-color: #ffffff;
+	  --text-color: #000000;
+	  --accent-gradient: linear-gradient(
+		45deg,
+		rgb(var(--accent)),
+		rgb(var(--accent-light)) 30%,
+		white 60%
+	  );
 	}
+  
+	html.dark {
+	  --background-color: #000000;
+	  --text-color: #ffffff;
+	  --accent-gradient: linear-gradient(
+		45deg,
+		rgb(var(--accent-dark)),
+		rgb(var(--accent)),
+		black 60%
+	  );
+	}
+  
 	body {
-		margin: 0;
-		padding: 0;
+	  background-color: var(--background-color);
+	  color: var(--text-color);
+	  font-family: var(--font-family);
+	  transition: background-color 0.3s ease, color 0.3s ease;
 	}
-
-	/* Modo claro */
-	.light {
-		--background-color: #ffffff;
-		--text-color: #000000;
-		background: var(--background-color);
-		color: var(--text-color);
-	}
-
-	/* Modo oscuro */
-	.dark {
-		--background-color: #13151a;
-		--text-color: #ffffff;
-		background: var(--background-color);
-		color: var(--text-color);
-	}
-
-	/* Botón de cambio de tema */
-	#theme-toggle {
-		position: fixed;
-		top: 10px;
-		right: 10px;
-		padding: 10px 20px;
-		background-color: var(--accent-light);
-		border: none;
-		border-radius: 5px;
-		cursor: pointer;
-	}
-</style>
+  </style>
+  
