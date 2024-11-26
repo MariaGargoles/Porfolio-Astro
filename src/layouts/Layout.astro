@@ -17,7 +17,7 @@ const { title } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 		<script>
-			// Detecta el tema preferido y aplica al cargar la página
+			
 			(function () {
 				const theme = localStorage.getItem('theme') || 'light';
 				document.documentElement.className = theme;
@@ -39,7 +39,7 @@ const { title } = Astro.props;
 	  --accent-light: 224, 204, 250;
 	  --accent-dark: 49, 10, 101;
   
-	  /* Fuentes */
+	  
 	  --font-family: 'Inter', sans-serif;
 	}
   
@@ -55,7 +55,7 @@ const { title } = Astro.props;
 	}
   
 	html.dark {
-	  --background-color: #000000;
+	  --background-color:  #212121;
 	  --text-color: #ffffff;
 	  --accent-gradient: linear-gradient(
 		45deg,
