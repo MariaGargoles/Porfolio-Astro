@@ -1,25 +1,22 @@
 ---
 import { FaRegMoon } from "react-icons/fa";
-
 ---
+
 <script>
   const button = document.getElementById("theme-toggle");
   if (button) {
     button.addEventListener("click", () => {
-      import("../../utils/theme-toggle.ts").then(module => {
+      import("../../utils/theme-toggle.ts").then((module) => {
         module.handleClick();
       });
     });
   }
 </script>
 
-
 <button
   id="theme-toggle"
   aria-label="Toggle light/dark mode"
-  class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-800 transition"
+  class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-800:scale-110 transition duration-300"
 >
   <FaRegMoon />
 </button>
-
-
