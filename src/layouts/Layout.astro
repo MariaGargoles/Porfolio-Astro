@@ -1,75 +1,72 @@
 ---
 interface Props {
-	title: string;
+  title: string;
 }
-import Header from '../components/HeaderComponent/header.astro';
-
+import Header from "../components/HeaderComponent/header.astro";
+import "@fontsource/roboto";
 const { title } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en" class="light">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-		<script>
-			
-			(function () {
-				const theme = localStorage.getItem('theme') || 'light';
-				document.documentElement.className = theme;
-			})();
-			
-		</script>
-	</head>
-	<body>
-		<Header/>
-		
-		<slot />
-		
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <script>
+      (function () {
+        const theme = localStorage.getItem("theme") || "light";
+        document.documentElement.className = theme;
+      })();
+    </script>
+  </head>
+  <body>
+    <Header />
+
+    <slot />
+  </body>
 </html>
 
 <style is:global>
-	:root {
-	  --accent: 136, 58, 234;
-	  --accent-light: 224, 204, 250;
-	  --accent-dark: 49, 10, 101;
-  
-	  
-	  --font-family: 'Inter', sans-serif;
-	}
-  
-	html.light {
-	  --background-color: #ffffff;
-	  --text-color: #000000;
-	  --accent-gradient: linear-gradient(
-		45deg,
-		rgb(var(--accent)),
-		rgb(var(--accent-light)) 30%,
-		white 60%
-	  );
-	}
-  
-	html.dark {
-	  --background-color:  #212121;
-	  --text-color: #ffffff;
-	  --accent-gradient: linear-gradient(
-		45deg,
-		rgb(var(--accent-dark)),
-		rgb(var(--accent)),
-		black 60%
-	  );
-	}
-  
-	body {
-	  background-color: var(--background-color);
-	  color: var(--text-color);
-	  font-family: var(--font-family);
-	  transition: background-color 0.3s ease, color 0.3s ease;
-	}
-  </style>
-  
+  :root {
+    --accent: 136, 58, 234;
+    --accent-light: 224, 204, 250;
+    --accent-dark: 49, 10, 101;
+
+    --font-family: "Roboto", sans-serif;
+  }
+
+  html.light {
+    --background-color: #ffffff;
+    --text-color: #000000;
+    --accent-gradient: linear-gradient(
+      45deg,
+      rgb(var(--accent)),
+      rgb(var(--accent-light)) 30%,
+      white 60%
+    );
+  }
+
+  html.dark {
+    --background-color: #212121;
+    --text-color: #ffffff;
+    --accent-gradient: linear-gradient(
+      45deg,
+      rgb(var(--accent-dark)),
+      rgb(var(--accent)),
+      black 60%
+    );
+  }
+
+  body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: var(--font-family);
+    transition:
+      background-color 0.3s ease,
+      color 0.3s ease;
+  }
+</style>

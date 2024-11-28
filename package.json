@@ -13,6 +13,7 @@
     "@astrojs/check": "^0.9.4",
     "@astrojs/react": "^3.6.3",
     "@astrojs/tailwind": "^5.1.2",
+    "@fontsource/roboto": "^5.1.0",
     "@types/react": "^18.3.12",
     "astro": "^4.16.15",
     "react": "^18.3.1",
