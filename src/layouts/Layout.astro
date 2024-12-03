@@ -5,6 +5,7 @@ interface Props {
 import Footer from "../components/FooterComponent/footer.astro";
 import Header from "../components/HeaderComponent/header.astro";
 import "@fontsource/roboto";
+import MainComponent from "../components/MainComponent/MainComponent.astro";
 const { title } = Astro.props;
 ---
 
@@ -26,6 +27,7 @@ const { title } = Astro.props;
   </head>
   <body>
     <Header />
+    <MainComponent />
     <Footer />
     <slot />
   </body>
@@ -53,6 +55,9 @@ const { title } = Astro.props;
 
   html.light nav a:hover {
     background-color: rgb(179, 182, 183);
+  }
+
+  html.light footer {
   }
 
   html.dark {
