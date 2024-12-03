@@ -1,16 +1,8 @@
 ---
-
+import DynamicTextComponent from "../../components/DynamicTextComponet/dynamictext.astro";
 ---
 
-<main>
-  <h2>Junior FullStack Developer</h2>
-  <p>
-    Soy desarrolladora junior Full Stack con experiencia en administración de
-    sistemas y ciberseguridad. <br />Mi pasión por el desarrollo web me ha
-    llevado a trabajar en proyectos como aplicaciones de gestión hotelera,
-    integrando tecnologías como React, Node.js y MongoDB.<br /> Además, tengo sólidos
-    conocimientos en la resolución de incidencias técnicas, automatización con scripts
-    y metodologías ágiles.<br /> Estoy comprometida con el aprendizaje continuo y
-    la creación de soluciones innovadoras que aporten valor.
-  </p>
+<main class="p-6">
+  <h2 class="text-2xl font-bold mb-4">Junior FullStack Developer</h2>
+  <DynamicTextComponent client:load />
 </main>
