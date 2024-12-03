@@ -1,0 +1,25 @@
+---
+
+---
+
+<span id="dynamic-text" class="text-lg font-light"></span>
+
+<script lang="ts">
+  const text = `Soy desarrolladora junior Full Stack con experiencia en administración de sistemas y ciberseguridad.
+Mi pasión por el desarrollo web me ha llevado a trabajar en proyectos como aplicaciones de gestión hotelera, integrando tecnologías como React, Node.js y MongoDB.
+Además, tengo sólidos conocimientos en la resolución de incidencias técnicas, automatización con scripts y metodologías ágiles.
+Estoy comprometida con el aprendizaje continuo y la creación de soluciones innovadoras que aporten valor.`;
+  const element = document.getElementById("dynamic-text");
+
+  let index = 0;
+
+  const typeText = () => {
+    if (element && index < text.length) {
+      element.textContent += text.charAt(index);
+      index++;
+      setTimeout(typeText, 45);
+    }
+  };
+
+  typeText();
+</script>
