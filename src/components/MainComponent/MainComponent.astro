@@ -1,5 +1,6 @@
 ---
 import DynamicTextComponent from "../../components/DynamicTextComponet/dynamictext.astro";
+import foto from "../../../public/assets/imagencompleta.jpg";
 ---
 
 <main
@@ -7,9 +8,13 @@ import DynamicTextComponent from "../../components/DynamicTextComponet/dynamicte
 >
   <div class="w-1/2 text-center px-4">
     <h2 class="text-2xl font-bold mb-4">Junior FullStack Developer</h2>
-    <DynamicTextComponent client:load />
+    <DynamicTextComponent />
   </div>
   <div class="w-1/2 text-center px-4">
-    <p class="text-lg">Texto 2</p>
+    <img
+      src={foto.src}
+      alt="imagen maria gargoles"
+      class="rounded-full mx-auto w-1/5"
+    />
   </div>
 </main>
