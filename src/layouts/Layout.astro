@@ -7,6 +7,9 @@ import Header from "../components/HeaderComponent/header.astro";
 import "@fontsource/roboto";
 import MainComponent from "../components/MainComponent/MainComponent.astro";
 const { title } = Astro.props;
+import Proyects from "../components/ProyectsComponent/proyects.astro";
+import "@fontsource-variable/cinzel";
+import "@fontsource-variable/syne";
 ---
 
 <!doctype html>
@@ -28,6 +31,7 @@ const { title } = Astro.props;
   <body>
     <Header />
     <MainComponent />
+    <Proyects />
     <Footer />
     <slot />
   </body>
@@ -38,8 +42,6 @@ const { title } = Astro.props;
     --accent: 136, 58, 234;
     --accent-light: 224, 204, 250;
     --accent-dark: 49, 10, 101;
-
-    --font-family: "Roboto", sans-serif;
   }
 
   html.light {
@@ -75,6 +77,9 @@ const { title } = Astro.props;
     background-color: rgb(82, 82, 82);
   }
 
+  header {
+    font-family: "Roboto", sans-serif;
+  }
   body {
     background-color: var(--background-color);
     color: var(--text-color);
