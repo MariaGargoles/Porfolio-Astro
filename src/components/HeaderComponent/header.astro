@@ -5,20 +5,27 @@ import DCVButton from "../DownloadCVButton/DCVButton.astro";
 ---
 
 <header class="text-2xl flex justify-between items-center px-4 py-2">
-  <img src={Firma.src} alt="Firma de Maria Gargoles" class="w-13 h-10" />
-
+  <div>
+    <span class="firma"></span>
+    {
+      /*<img src={Firma.src} alt="Firma de Maria Gargoles" class="w-13 h-10" />*/
+    }
+  </div>
   <nav class="flex-1 flex justify-evenly gap-4 items-center">
     <a
       href="/About"
-      class="text-xl px-4 py-2 rounded-lg transition duration-300">About</a
+      class="font-cinzel font-bold text-xl px-4 py-2 rounded-lg transition duration-300"
+      >About</a
     >
     <a
       href="/Projects"
-      class="text-xl px-4 py-2 rounded-lg transition duration-300">Projects</a
+      class="font-cinzel font-bold text-xl px-4 py-2 rounded-lg transition duration-300"
+      >Projects</a
     >
     <a
-      href="/Download"
-      class="text-xl px-4 py-2 rounded-lg transition duration-300">Contact</a
+      href="/Contact"
+      class="font-cinzel font-bold text-xl px-4 py-2 rounded-lg transition duration-300"
+      >Contact</a
     >
   </nav>
 
