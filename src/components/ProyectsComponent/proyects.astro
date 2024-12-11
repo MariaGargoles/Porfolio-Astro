@@ -1,18 +1,50 @@
 ---
-import Slider from "./SliderProyects.ts"
-Slider();
+import Slider from "../../utils/SliderProyects.ts";
 ---
 
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Especifica el tipo esperado del elemento
+    const slider = document.querySelector<HTMLDivElement>("#slider");
+    const prevButton = document.querySelector<HTMLButtonElement>("#prev");
+    const nextButton = document.querySelector<HTMLButtonElement>("#next");
+
+    if (!slider || !prevButton || !nextButton) {
+      console.error("Slider elements not found");
+      return;
+    }
+
+    let currentIndex = 0;
+
+    const updateSlider = () => {
+      slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+    };
+
+    prevButton.addEventListener("click", () => {
+      currentIndex = Math.max(0, currentIndex - 1);
+      console.log("Prev button clicked", currentIndex);
+      updateSlider();
+    });
+
+    nextButton.addEventListener("click", () => {
+      const sliderChildren = slider.children.length;
+      currentIndex = Math.min(sliderChildren - 1, currentIndex + 1);
+      console.log("Next button clicked", currentIndex);
+      updateSlider();
+    });
+  });
+</script>
+
 <div class="relative overflow-hidden w-full max-w-4xl mx-auto">
-    <div id="slider" class="flex transition-transform duration-300">
-      <div class="min-w-full h-64 bg-red-500 flex justify-center items-center text-white text-2xl font-bold">Slide 1</div>
-      <div class="min-w-full h-64 bg-green-500 flex justify-center items-center text-white text-2xl font-bold">Slide 2</div>
-      <div class="min-w-full h-64 bg-blue-500 flex justify-center items-center text-white text-2xl font-bold">Slide 3</div>
-    </div>
-    <button id="prev" class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-gray-800 text-white rounded-full w-10 h-10 flex items-center justify-center">
-      ◀
-    </button>
-    <button id="next" class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-gray-800 text-white rounded-full w-10 h-10 flex items-center justify-center">
-      ▶
-    </button>
+  <div id="slider" class="flex transition-transform duration-300">
+    <div class="min-w-full h-64 bg-red-500 flex justify-center items-center text-white text-2xl font-bold">Slide 1</div>
+    <div class="min-w-full h-64 bg-green-500 flex justify-center items-center text-white text-2xl font-bold">Slide 2</div>
+    <div class="min-w-full h-64 bg-blue-500 flex justify-center items-center text-white text-2xl font-bold">Slide 3</div>
   </div>
+  <button id="prev" class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-gray-800 text-white rounded-full w-10 h-10 flex items-center justify-center">
+    ◀
+  </button>
+  <button id="next" class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-gray-800 text-white rounded-full w-10 h-10 flex items-center justify-center">
+    ▶
+  </button>
+</div>
