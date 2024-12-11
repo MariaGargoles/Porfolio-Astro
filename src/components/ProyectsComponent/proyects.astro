@@ -1,50 +1,123 @@
 ---
-import Slider from "../../utils/SliderProyects.ts";
+import { GrCaretPrevious } from "react-icons/gr";
+import { GrCaretNext } from "react-icons/gr";
 ---
 
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    // Especifica el tipo esperado del elemento
-    const slider = document.querySelector<HTMLDivElement>("#slider");
-    const prevButton = document.querySelector<HTMLButtonElement>("#prev");
-    const nextButton = document.querySelector<HTMLButtonElement>("#next");
-
-    if (!slider || !prevButton || !nextButton) {
-      console.error("Slider elements not found");
-      return;
-    }
-
-    let currentIndex = 0;
-
-    const updateSlider = () => {
-      slider.style.transform = `translateX(-${currentIndex * 100}%)`;
-    };
-
-    prevButton.addEventListener("click", () => {
-      currentIndex = Math.max(0, currentIndex - 1);
-      console.log("Prev button clicked", currentIndex);
-      updateSlider();
+    document.addEventListener("DOMContentLoaded", function () {
+      const sliders = document.querySelectorAll<HTMLDivElement>(".slider-container");
+  
+      sliders.forEach((container) => {
+        // Especificar tipos para los elementos seleccionados
+        const slider = container.querySelector<HTMLDivElement>(".slider");
+        const prevButton = container.querySelector<HTMLButtonElement>(".prev");
+        const nextButton = container.querySelector<HTMLButtonElement>(".next");
+  
+        if (!slider || !prevButton || !nextButton) {
+          console.error("Slider elements not found in container", container);
+          return;
+        }
+  
+        let currentIndex = 0;
+  
+        const updateSlider = () => {
+          slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+        };
+  
+        prevButton.addEventListener("click", () => {
+          currentIndex = Math.max(0, currentIndex - 1);
+          console.log("Prev button clicked", currentIndex);
+          updateSlider();
+        });
+  
+        nextButton.addEventListener("click", () => {
+          const sliderChildren = slider.children.length;
+          currentIndex = Math.min(sliderChildren - 1, currentIndex + 1);
+          console.log("Next button clicked", currentIndex);
+          updateSlider();
+        });
+      });
     });
-
-    nextButton.addEventListener("click", () => {
-      const sliderChildren = slider.children.length;
-      currentIndex = Math.min(sliderChildren - 1, currentIndex + 1);
-      console.log("Next button clicked", currentIndex);
-      updateSlider();
-    });
-  });
-</script>
-
-<div class="relative overflow-hidden w-full max-w-4xl mx-auto">
-  <div id="slider" class="flex transition-transform duration-300">
-    <div class="min-w-full h-64 bg-red-500 flex justify-center items-center text-white text-2xl font-bold">Slide 1</div>
-    <div class="min-w-full h-64 bg-green-500 flex justify-center items-center text-white text-2xl font-bold">Slide 2</div>
-    <div class="min-w-full h-64 bg-blue-500 flex justify-center items-center text-white text-2xl font-bold">Slide 3</div>
-  </div>
-  <button id="prev" class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-gray-800 text-white rounded-full w-10 h-10 flex items-center justify-center">
-    ◀
-  </button>
-  <button id="next" class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-gray-800 text-white rounded-full w-10 h-10 flex items-center justify-center">
-    ▶
-  </button>
-</div>
+  </script>
+  
+  <section class="container mx-auto px-4 py-8">
+    <h2 class="text-3xl font-syne font-bold mb-6 text-center">Projects</h1>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <!-- Project 1 -->
+      <div class="project-item border rounded-lg p-4 shadow-md slider-container">
+        <h2 class="text-xl font-semibold flex justify-center items-center mb-4">Project 1</h2>
+        <div class="relative overflow-hidden">
+          <div class="slider flex transition-transform duration-300">
+            <div class="min-w-full h-64 bg-red-500 flex justify-center items-center text-white text-2xl font-bold">Slide 1</div>
+            <div class="min-w-full h-64 bg-green-500 flex justify-center items-center text-white text-2xl font-bold">Slide 2</div>
+            <div class="min-w-full h-64 bg-blue-500 flex justify-center items-center text-white text-2xl font-bold">Slide 3</div>
+          </div>
+          <button class="prev absolute top-1/2 left-2 transform -translate-y-1/2 bg-gray-800 text-white rounded-full w-10 h-10 flex items-center justify-center">
+            <GrCaretPrevious/>
+          </button>
+          <button class="next absolute top-1/2 right-2 transform -translate-y-1/2 bg-gray-800 text-white rounded-full w-10 h-10 flex items-center justify-center">
+            <GrCaretNext/>
+          </button>
+        </div>
+        <p class="mt-4 font-roboto">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      </div>
+  
+      <!-- Project 2 -->
+      <div class="project-item border rounded-lg p-4 shadow-md slider-container">
+        <h2 class="text-xl font-syne flex justify-center font-semibold mb-4">Project 2</h2>
+        <div class="relative overflow-hidden">
+          <div class="slider flex transition-transform duration-300">
+            <div class="min-w-full h-64 bg-purple-500 flex justify-center items-center text-white text-2xl font-bold">Slide 1</div>
+            <div class="min-w-full h-64 bg-yellow-500 flex justify-center items-center text-white text-2xl font-bold">Slide 2</div>
+            <div class="min-w-full h-64 bg-pink-500 flex justify-center items-center text-white text-2xl font-bold">Slide 3</div>
+          </div>
+          <button class="prev absolute top-1/2 left-2 transform -translate-y-1/2 bg-gray-800 text-white rounded-full w-10 h-10 flex items-center justify-center">
+            <GrCaretPrevious/>
+          </button>
+          <button class="next absolute top-1/2 right-2 transform -translate-y-1/2 bg-gray-800 text-white rounded-full w-10 h-10 flex items-center justify-center">
+            <GrCaretNext/>
+          </button>
+        </div>
+        <p class="mt-4 font-roboto">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      </div>
+  
+      <!-- Project 3 -->
+      <div class="project-item border rounded-lg p-4 shadow-md slider-container">
+        <h2 class="text-xl flex font-syne justify-center font-semibold mb-4">Project 3</h2>
+        <div class="relative overflow-hidden">
+          <div class="slider flex transition-transform duration-300">
+            <div class="min-w-full h-64 bg-teal-500 flex justify-center items-center text-white text-2xl font-bold">Slide 1</div>
+            <div class="min-w-full h-64 bg-orange-500 flex justify-center items-center text-white text-2xl font-bold">Slide 2</div>
+            <div class="min-w-full h-64 bg-indigo-500 flex justify-center items-center text-white text-2xl font-bold">Slide 3</div>
+          </div>
+          <button class="prev absolute top-1/2 left-2 transform -translate-y-1/2 bg-gray-800 text-white rounded-full w-10 h-10 flex items-center justify-center">
+            <GrCaretPrevious/>
+          </button>
+          <button class="next absolute top-1/2 right-2 transform -translate-y-1/2 bg-gray-800 text-white rounded-full w-10 h-10 flex items-center justify-center">
+            <GrCaretNext/>
+          </button>
+        </div>
+        <p class="mt-4 font-roboto">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
+      </div>
+  
+      <!-- Project 4 -->
+      <div class="project-item border rounded-lg p-4 shadow-md slider-container">
+        <h2 class="text-xl font-syne flex justify-center font-semibold mb-4">Project 4</h2>
+        <div class="relative overflow-hidden">
+          <div class="slider flex transition-transform duration-300">
+            <div class="min-w-full h-64 bg-lime-500 flex justify-center items-center text-white text-2xl font-bold">Slide 1</div>
+            <div class="min-w-full h-64 bg-cyan-500 flex justify-center items-center text-white text-2xl font-bold">Slide 2</div>
+            <div class="min-w-full h-64 bg-fuchsia-500 flex justify-center items-center text-white text-2xl font-bold">Slide 3</div>
+          </div>
+          <button class="prev absolute top-1/2 left-2 transform -translate-y-1/2 bg-gray-800 text-white rounded-full w-10 h-10 flex items-center justify-center">
+            <GrCaretPrevious/>
+          </button>
+          <button class="next absolute top-1/2 right-2 transform -translate-y-1/2 bg-gray-800 text-white rounded-full w-10 h-10 flex items-center justify-center">
+            <GrCaretNext/>
+          </button>
+        </div>
+        <p class="mt-4 font-roboto">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+      </div>
+    </div>
+  </section>
+  
