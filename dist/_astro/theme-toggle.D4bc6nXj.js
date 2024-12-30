@@ -1,0 +1,1 @@
+const s=()=>{const t=document.documentElement,e=t.classList.contains("light")?"dark":"light";t.classList.remove("light","dark"),t.classList.add(e),localStorage.setItem("theme",e)};export{s as handleClick};
