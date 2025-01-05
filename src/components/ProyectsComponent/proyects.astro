@@ -6,6 +6,9 @@ import ManageDashboard from "../../../public/assets/managedash.jpg";
 import DBDashboard from "../../../public/assets/mongodb.jpg";
 import { FaGithub } from "react-icons/fa";
 import { SiAmazonwebservices } from "react-icons/si";
+import HotelMiranda from "../../../public/assets/homemiranda.jpg";
+import HotelAboutUs from "../../../public/assets/aboutus.jpg";
+import ContactMiranda from "../../../public/assets/contact.jpg";
 ---
 
 <script>
@@ -171,6 +174,7 @@ import { SiAmazonwebservices } from "react-icons/si";
       <div class="flex items-start justify-center gap-4 mt-4 text-3xl">
         <a
           href="http://dashboard-miranda-mgl.s3-website.eu-west-3.amazonaws.com"
+          target="_blank"
           class="hover:scale-110 rounded-lg transition duration-300"
           ><SiAmazonwebservices /></a
         >
@@ -187,17 +191,17 @@ import { SiAmazonwebservices } from "react-icons/si";
           <div
             class="min-w-full h-64 bg-purple-500 flex justify-center items-center text-white text-2xl font-bold"
           >
-            Slide 1
+            <img src={HotelMiranda.src} alt="Hotel Miranda" />
           </div>
           <div
             class="min-w-full h-64 bg-yellow-500 flex justify-center items-center text-white text-2xl font-bold"
           >
-            Slide 2
+            <img src={HotelAboutUs.src} alt="Hotel Miranda" />
           </div>
           <div
             class="min-w-full h-64 bg-pink-500 flex justify-center items-center text-white text-2xl font-bold"
           >
-            Slide 3
+            <img src={ContactMiranda.src} alt="Hotel Miranda" />
           </div>
         </div>
         <button
@@ -211,9 +215,88 @@ import { SiAmazonwebservices } from "react-icons/si";
           <GrCaretNext className="w-5 h-5" />
         </button>
       </div>
-      <p class="mt-4 font-roboto">
-        Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      </p>
+      <article class="p-8 rounded-lg">
+        <p class="mt-5 font-roboto text-base">
+          Miranda Hotel Laravel App es una aplicación web diseñada para
+          facilitar las reservas hoteleras y proporcionar una experiencia
+          conveniente tanto para los clientes como para el personal del hotel.<br
+          /><br />
+          El frontend está desarrollado con:
+        </p>
+
+        <div class="flex flex-wrap items-center gap-2 mt-4">
+          <span
+            class="bg-blue-500 text-white text-sm font-bold px-4 py-1.5 rounded-md"
+          >
+            HTML5
+          </span>
+          <span
+            class="bg-pink-500 text-white text-sm font-bold px-4 py-1.5 rounded-md"
+          >
+            SASS
+          </span>
+          <span
+            class="bg-yellow-500 text-white text-sm font-bold px-4 py-1.5 rounded-md"
+          >
+            JavaScript
+          </span>
+        </div>
+
+        <p class="mt-6 font-roboto text-base">
+          El backend está construido con:
+        </p>
+
+        <div class="flex flex-wrap items-center gap-2 mt-4">
+          <span
+            class="bg-purple-600 text-white text-sm font-bold px-4 py-1.5 rounded-md"
+          >
+            PHP
+          </span>
+          <span
+            class="bg-red-500 text-white text-sm font-bold px-4 py-1.5 rounded-md"
+          >
+            Laravel
+          </span>
+        </div>
+
+        <p class="mt-6 font-roboto text-base">
+          Además, utiliza las siguientes tecnologías para la gestión de datos y
+          el despliegue:
+        </p>
+
+        <div class="flex flex-wrap items-center gap-2 mt-4">
+          <span
+            class="bg-green-500 text-white text-sm font-bold px-4 py-1.5 rounded-md"
+          >
+            MySQL
+          </span>
+          <span
+            class="bg-blue-600 text-white text-sm font-bold px-4 py-1.5 rounded-md"
+          >
+            Docker
+          </span>
+        </div>
+
+        <p class="mt-6 font-roboto text-base">
+          Esta solución mejora la experiencia tanto de los usuarios finales como
+          del personal administrativo, asegurando un sistema robusto y
+          escalable.
+        </p>
+      </article>
+      <div class="flex items-start justify-center gap-4 mt-4 text-3xl">
+        <a
+          href="http//15.237.159.2"
+          target="_blank"
+          class="hover:scale-110 rounded-lg transition duration-300"
+          ><SiAmazonwebservices /></a
+        >
+        <a
+          href="https://github.com/MariaGargoles/Miranda-Hotel-Laravel-App"
+          class="hover:scale-110 rounded-lg transition duration-300 p-2 text-2xl text-gray-700"
+        >
+          <FaGithub />
+        </a>
+      </div>
     </div>
 
     <!-- Project 3 -->
