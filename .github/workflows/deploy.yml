@@ -10,20 +10,29 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # 1. Checkout el código
       - name: Checkout code
         uses: actions/checkout@v2
 
+      # 2. Configurar Node.js
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: "20.11.1"
+          node-version: "20"
 
+      # 3. Instalar dependencias 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
+      # 4. Dar permisos 
+      - name: Fix permissions for Astro
+        run: chmod +x ./node_modules/.bin/astro
+
+      # 5. Construir el proyecto
       - name: Build the project
         run: npm run build
 
+      # 6. Subir a S3
       - name: Deploy to S3
         uses: jakejarvis/s3-sync-action@master
         with:
@@ -34,19 +43,3 @@ jobs:
           AWS_REGION: ${{ secrets.AWS_REGION }}
           AWS_S3_BUCKET: ${{ secrets.AWS_BUCKET_NAME }}
           SOURCE_DIR: "dist"
-
-  test:
-    runs-on: ubuntu-latest
-    needs: deploy
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: "20.11.1"
-
-      - name: Install dependencies
-        run: npm install
