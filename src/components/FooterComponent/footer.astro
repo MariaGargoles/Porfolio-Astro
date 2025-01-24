@@ -4,15 +4,19 @@ import { FaLinkedin } from "react-icons/fa";
 import { FaLaptopCode } from "react-icons/fa";
 ---
 
-<footer class="w-full text-2xl flex justify-between items-center px-4 py-2">
+<footer
+  class="w-full text-2xl flex justify-between items-center px-4 py-2 fixed bottom-0"
+>
   <FaLaptopCode />
   <nav class="flex-2 flex justify-center gap-4 items-center">
     <a
       href="https://github.com/MariaGargoles"
-      class="hover:scale-110 rounded-lg transition duration-300"><FaGithub /></a
+      class="hover:scale-110 rounded-lg transition duration-300"
     >
-    <a href="#" class="hover:scale-110 rounded-lg transition duration-300"
-      ><FaLinkedin /></a
-    >
+      <FaGithub />
+    </a>
+    <a href="#" class="hover:scale-110 rounded-lg transition duration-300">
+      <FaLinkedin />
+    </a>
   </nav>
 </footer>

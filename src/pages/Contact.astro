@@ -9,6 +9,7 @@ const { title } = Astro.props;
 import "@fontsource-variable/cinzel";
 import "@fontsource-variable/syne";
 import ContactMainComponent from "@components/ContactComponent/ContactMainComponent.astro";
+import { FaExpeditedssl } from "react-icons/fa";
 ---
 
 <!doctype html>
@@ -30,7 +31,7 @@ import ContactMainComponent from "@components/ContactComponent/ContactMainCompon
   <body>
     <Header />
     <ContactMainComponent />
-    <Footer />
+    <Footer class="fixed-footer" />
     <slot />
   </body>
 </html>
@@ -95,13 +96,12 @@ import ContactMainComponent from "@components/ContactComponent/ContactMainCompon
   html.light footer {
     box-shadow: 0em -0.31em 2.4em 0em rgba(0, 0, 0, 0.5);
   }
-  html.light .firma {
-    background-image: url("../../public/assets/firmaclaror.png");
-    width: 15rem;
-    height: 15rem;
-  }
-
-  html.dark .firma {
-    background-image: url("../../public/assets/firmpa-removebg-preview.png");
+  .fixed-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    box-shadow: 0em -0.31em 2.4em 0em rgba(0, 0, 0, 0.5);
   }
 </style>
