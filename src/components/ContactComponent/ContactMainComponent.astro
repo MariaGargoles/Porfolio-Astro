@@ -1,0 +1,62 @@
+<main class="p-12">
+  <section
+    class="flex flex-col items-center border rounded-lg p-12 w-full max-w-3xl mx-auto shadow-lg"
+  >
+    <article class="flex flex-col items-center text-center">
+      <h2 class="pb-3 font-cinzel text-2xl font-bold">Contáctame</h2>
+      <p class="font-roboto p-10 text-sm md:text-base leading-relaxed">
+        Si quieres ponerte en contacto conmigo, por favor completa el siguiente
+        formulario. Estaré encantada de responderte lo antes posible. 😊
+      </p>
+    </article>
+
+    <!-- Formulario -->
+    <form class="flex flex-col w-full gap-6" action="#" method="post">
+      <div class="flex flex-col">
+        <label for="name" class="font-roboto text-sm font-bold">Nombre</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          required
+          class="border rounded-lg p-2 mt-1 text-sm dark:bg-gray-800 dark:border-gray-600 dark:text-white"
+          placeholder="Tu nombre"
+        />
+      </div>
+
+      <div class="flex flex-col">
+        <label for="email" class="font-roboto text-sm font-bold"
+          >Correo Electrónico</label
+        >
+        <input
+          type="email"
+          id="email"
+          name="email"
+          required
+          class="border rounded-lg p-2 mt-1 text-sm dark:bg-gray-800 dark:border-gray-600 dark:text-white"
+          placeholder="Tu correo electrónico"
+        />
+      </div>
+
+      <div class="flex flex-col">
+        <label for="message" class="font-roboto text-sm font-bold"
+          >Mensaje</label
+        >
+        <textarea
+          id="message"
+          name="message"
+          required
+          rows="5"
+          class="border rounded-lg p-2 mt-1 text-sm dark:bg-gray-800 dark:border-gray-600 dark:text-white"
+          placeholder="Escribe tu mensaje aquí..."></textarea>
+      </div>
+
+      <button
+        type="submit"
+        class="px-6 py-2 rounded-md font-roboto text-sm font-bold bg-blue-500 text-white hover:bg-blue-600 transition duration-200 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600"
+      >
+        Enviar
+      </button>
+    </form>
+  </section>
+</main>
