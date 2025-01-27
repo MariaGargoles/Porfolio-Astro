@@ -1,4 +1,5 @@
 import emailjs from "emailjs-com";
+import Swal from "sweetalert2";
 
 export const EmailJs = () => {
   emailjs.init("7lhPT7Jxo_6nNdPd1");
@@ -20,9 +21,28 @@ export const EmailJs = () => {
               response.status,
               response.text
             );
+
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: "Correo enviado con éxito!",
+              showConfirmButton: false,
+              timer: 1500,
+            });
+
+            form.reset();
           })
           .catch((error) => {
             console.error("Error al enviar el correo:", error);
+
+            // Mostrar alerta de error
+            Swal.fire({
+              position: "top-end",
+              icon: "error",
+              title: "Error al enviar el correo. Intenta nuevamente.",
+              showConfirmButton: false,
+              timer: 1500,
+            });
           });
       });
     } else {
