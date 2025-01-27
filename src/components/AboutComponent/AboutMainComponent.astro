@@ -4,7 +4,7 @@
   >
     <article class="flex flex-col items-center text-center">
       <h2 class="pb-3 font-cinzel text-2xl font-bold">¡Conóceme!</h2>
-      <p class="font-roboto p-10 text-sm md:text-base leading-relaxed">
+      <p class="font-roboto text-sm md:text-base leading-relaxed">
         En este video quiero compartir un poco sobre mí: quién soy, cómo llegué
         al mundo del desarrollo web y qué me apasiona de esta profesión. <br
         /><br />
@@ -19,11 +19,7 @@
 
     <!-- Video -->
     <article class="flex flex-col items-center my-8 w-full">
-      <video
-        class="rounded-lg shadow-lg"
-        controls
-        style="width: 100%; max-width: 600px; height: auto; max-height: 400px;"
-      >
+      <video class="rounded-lg shadow-lg w-full max-w-3xl h-auto" controls>
         <source src="/assets/Presentacion.mp4" type="video/mp4" />
         Tu navegador no soporta reproducción de video.
       </video>
@@ -31,32 +27,45 @@
 
     <article class="flex flex-col items-center text-center">
       <h2 class="pb-3 font-cinzel text-2xl font-bold">Sobre Mi</h2>
-      <p class="font-roboto p-10 text-sm md:text-base leading-relaxed">
-        ¡Hola! Soy María, una desarrolladora web full stack con una curiosidad
-        infinita por entender cómo funcionan las cosas y convertir ideas en
-        proyectos reales.
-        <br /><br />
-        Mi camino hasta aquí no ha sido lineal: comencé en administración de sistemas
-        y ciberseguridad, pero pronto descubrí mi pasión por el desarrollo web y
-        el impacto que puede tener en el mundo.
-        <br /><br />
-        A lo largo de mi experiencia, he aprendido a adaptarme a cualquier reto,
-        ya sea desarrollando aplicaciones completas, resolviendo problemas complejos
-        o trabajando en equipo en entornos ágiles.
-        <br /><br />
-        Pero más allá de lo técnico, lo que realmente me motiva es seguir creciendo,
-        aprender cada día algo nuevo y superar límites, tanto personales como profesionales.
-        <br /><br />
-        Soy una persona perseverante y creativa, y me encanta conectar con personas
-        que comparten esa energía. Me ilusiona la idea de trabajar en proyectos que
-        hagan la diferencia, no solo en código, sino también en las vidas de quienes
-        los usan.
-      </p>
+      <div class="font-roboto text-sm md:text-base leading-relaxed space-y-4">
+        <p>
+          ¡Hola! Soy María, una desarrolladora web full stack con una curiosidad
+          infinita por entender cómo funcionan las cosas y convertir ideas en
+          proyectos reales.
+        </p>
+
+        <p>
+          Mi camino hasta aquí no ha sido lineal: comencé en administración de
+          sistemas y ciberseguridad, pero pronto descubrí mi pasión por el
+          desarrollo web y el impacto que puede tener en el mundo.
+        </p>
+
+        <p>
+          A lo largo de mi experiencia, he aprendido a adaptarme a cualquier
+          reto, ya sea desarrollando aplicaciones completas, resolviendo
+          problemas complejos o trabajando en equipo en entornos ágiles.
+        </p>
+
+        <p>
+          Pero más allá de lo técnico, lo que realmente me motiva es seguir
+          creciendo, aprender cada día algo nuevo y superar límites, tanto
+          personales como profesionales.
+        </p>
+
+        <p>
+          Soy una persona perseverante y creativa, y me encanta conectar con
+          personas que comparten esa energía. Me ilusiona la idea de trabajar en
+          proyectos que hagan la diferencia, no solo en código, sino también en
+          las vidas de quienes los usan.
+        </p>
+      </div>
     </article>
   </section>
-  <button
-    class="px-6 py-2 rounded-md font-roboto text-sm font-bold bg-blue-500 text-white hover:bg-blue-600 transition duration-200 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600"
-  >
-    <a href="/">Back Home</a>
-  </button>
+  <div class="flex justify-center mt-8 py-3">
+    <button
+      class="px-6 py-2 rounded-md font-roboto text-sm font-bold bg-blue-500 text-white hover:bg-blue-600 transition duration-200 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600"
+    >
+      <a href="/">Back Home</a>
+    </button>
+  </div>
 </main>
