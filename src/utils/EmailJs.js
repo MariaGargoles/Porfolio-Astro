@@ -13,6 +13,21 @@ export const EmailJs = () => {
       form.addEventListener("submit", (e) => {
         e.preventDefault();
 
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const message = document.getElementById("message").value.trim();
+
+        if (!name || !email || !message) {
+          Swal.fire({
+            position: "top-end",
+            icon: "warning",
+            title: "Por favor, completa todos los campos.",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          return;
+        }
+
         emailjs
           .sendForm("service_56t55ps", "template_3wemxsj", form)
           .then((response) => {
@@ -35,7 +50,6 @@ export const EmailJs = () => {
           .catch((error) => {
             console.error("Error al enviar el correo:", error);
 
-            // Mostrar alerta de error
             Swal.fire({
               position: "top-end",
               icon: "error",
