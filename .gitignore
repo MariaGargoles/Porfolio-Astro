@@ -35,3 +35,11 @@ pnpm-debug.log*
 *.swp                 # Swap files for Vim/other editors
 Thumbs.db             # Windows-specific thumbnail cache
 *.bak                 # Backup files
+
+tailwind.config.mjs
+package.json
+astro.config.mjs
+astro.config.ts
+astro.config.js
+package-lock.json
+pnpm-lock.yaml
