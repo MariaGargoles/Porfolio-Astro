@@ -1,11 +1,12 @@
 {
-  "extends": "astro/tsconfigs/strict",
+  "extends": "astro/tsconfigs/base",
   "compilerOptions": {
+    "types": ["astro/client"],
     "baseUrl": ".",
     "paths": {
       "@components/*": ["src/components/*"]
     }
   },
-  "include": ["src/**/*", "astro.config.mjs"],
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.astro"],
   "exclude": ["node_modules", "dist"]
 }
