@@ -2,31 +2,40 @@
 import Buttonlight from "../DarkLightButtonComponent/buttonlight.astro";
 
 import DCVButton from "../DownloadCVButton/DCVButton.astro";
+
+const links = [
+  { href: "About", label: "About" },
+  { href: "Projects", label: "Projects" },
+  { href: "Contact", label: "Contact" },
+];
+
+const withBase = (p: string) =>
+  `${import.meta.env.BASE_URL.replace(/\/+$/, "/")}${p.replace(/^\/+/, "")}`;
+
+const current = Astro.url.pathname;
 ---
 
 <header
   class="shadow-lg z-50 w-full fixed top-0 md:static md:shadow-none flex flex-wrap items-center px-4 sm:px-8 py-2"
 >
-  <!-- Navegación -->
   <nav class="w-full sm:flex-1 flex justify-evenly gap-4 items-center">
-    <a
-      href="/About"
-      class="font-cinzel font-bold text-xl px-4 py-2 rounded-lg transition duration-300"
-      >About</a
-    >
-    <a
-      href="/Projects"
-      class="font-cinzel font-bold text-xl px-4 py-2 rounded-lg transition duration-300"
-      >Projects</a
-    >
-    <a
-      href="/Contact"
-      class="font-cinzel font-bold text-xl px-4 py-2 rounded-lg transition duration-300"
-      >Contact</a
-    >
+    {
+      links.map(({ href, label }) => {
+        const url = withBase(href);
+        const isActive = current === url || current === `${url}/`;
+        return (
+          <a
+            href={url}
+            aria-current={isActive ? "page" : undefined}
+            class={`font-cinzel font-bold text-xl px-4 py-2 rounded-lg transition duration-300
+                  hover:opacity-80 ${isActive ? "underline underline-offset-8" : ""}`}
+          >
+            {label}
+          </a>
+        );
+      })
+    }
   </nav>
-
-  <!-- Botones (Descargar CV y Cambiar Tema) -->
   <div
     class="w-full sm:w-auto justify-center sm:justify-end gap-4 items-center mt-2 sm:mt-0 sm:flex hidden"
   >

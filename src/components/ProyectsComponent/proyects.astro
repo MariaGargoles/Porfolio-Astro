@@ -3,6 +3,8 @@ import { GrCaretPrevious } from "react-icons/gr";
 import { GrCaretNext } from "react-icons/gr";
 import { FaGithub } from "react-icons/fa";
 import { SiAmazonwebservices } from "react-icons/si";
+const withBase = (p: string) =>
+  `${import.meta.env.BASE_URL.replace(/\/+$/, "/")}${p.replace(/^\/+/, "")}`;
 ---
 
 <script>
@@ -56,17 +58,20 @@ import { SiAmazonwebservices } from "react-icons/si";
           <div
             class="min-w-full h-[30vh] bg-red-500 flex justify-center items-center text-white text-2xl font-bold"
           >
-            <img src={"/assets/cre1.JPG"} alt="Dycle dashboard enviroment" />
+            <img
+              src={withBase("assets/cre1.JPG")}
+              alt="Dycle dashboard enviroment"
+            />
           </div>
           <div
             class="min-w-full h-[30vh] bg-green-500 flex justify-center items-center text-white text-2xl font-bold"
           >
-            <img src={"/assets/cre3.JPG"} alt="Dycle card" />
+            <img src={withBase("assets/cre3.JPG")} alt="Dycle card" />
           </div>
           <div
             class="min-w-full h-[30vh] bg-blue-500 flex justify-center items-center text-white text-2xl font-bold"
           >
-            <img src={"/assets/cre2.JPG"} alt="Dycle dashboard" />
+            <img src={withBase("assets/cre2.JPG")} alt="Dycle dashboard" />
           </div>
         </div>
         <button
@@ -157,17 +162,20 @@ import { SiAmazonwebservices } from "react-icons/si";
           <div
             class="min-w-full h-[30vh] bg-purple-500 flex justify-center items-center text-white text-2xl font-bold"
           >
-            <img src={"/assets/proy1.JPG"} alt="MusicAdders Login" />
+            <img src={withBase("assets/proy1.JPG")} alt="MusicAdders Login" />
           </div>
           <div
             class="min-w-full h-[30vh] bg-yellow-500 flex justify-center items-center text-white text-2xl font-bold"
           >
-            <img src={"/assets/proy2.JPG"} alt="MusicAdders Home" />
+            <img src={withBase("assets/proy2.JPG")} alt="MusicAdders Home" />
           </div>
           <div
             class="min-w-full h-[30vh] bg-pink-500 flex justify-center items-center text-white text-2xl font-bold"
           >
-            <img src={"/assets/proy3.JPG"} alt="MusicAdders ArtistPage" />
+            <img
+              src={withBase("assets/proy3.JPG")}
+              alt="MusicAdders ArtistPage"
+            />
           </div>
         </div>
         <button

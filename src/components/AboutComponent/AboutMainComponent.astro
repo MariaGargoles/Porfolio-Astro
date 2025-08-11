@@ -1,3 +1,8 @@
+---
+const withBase = (p: string) =>
+  `${import.meta.env.BASE_URL.replace(/\/+$/, "/")}${p.replace(/^\/+/, "")}`;
+---
+
 <main class="p-12">
   <section
     class="flex flex-col items-center border rounded-lg p-12 w-full max-w-3xl mx-auto shadow-lg"
@@ -62,10 +67,15 @@
     </article>
   </section>
   <div class="flex justify-center mt-8 py-3">
-    <button
-      class="px-6 py-2 rounded-md font-roboto text-sm font-bold bg-blue-500 text-white hover:bg-blue-600 transition duration-200 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600"
+    <a
+      href={withBase("")}
+      class="px-6 py-2 rounded-md font-roboto text-sm font-bold
+           bg-blue-500 text-white hover:bg-blue-600
+           transition duration-200
+           dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600
+           inline-block"
     >
-      <a href="/">Back Home</a>
-    </button>
+      Back Home
+    </a>
   </div>
 </main>
