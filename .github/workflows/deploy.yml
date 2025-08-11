@@ -25,7 +25,11 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
+      - name: Disable Jekyll
+        run: echo > dist/.nojekyll
       - uses: actions/configure-pages@v5
+        with:
+          enablement: true
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
@@ -36,5 +40,3 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
-      - run: |
-          echo "✅ Publicado en: ${{ steps.deployment.outputs.page_url }}"
