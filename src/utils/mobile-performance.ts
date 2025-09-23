@@ -16,9 +16,9 @@ export function optimizeMobileImages(): void {
     
     // Optimizar para diferentes densidades de pantalla (solo si existen las imágenes @2x)
     if (img.src && !img.srcset) {
-      const baseSrc = img.src;
       // Solo agregar srcset si las imágenes @2x existen realmente
       // Por ahora, deshabilitamos el srcset automático para evitar errores 404
+      // const baseSrc = img.src;
       // img.setAttribute('srcset', srcset);
     }
     
@@ -244,25 +244,24 @@ export function optimizeScriptLoading(): void {
  * Implementa compresión de imágenes
  */
 export function implementImageCompression(): void {
-  const images = document.querySelectorAll('img');
-  
-  images.forEach(img => {
-    // Solo agregar formatos modernos si existen realmente
-    // Por ahora, deshabilitamos la compresión automática para evitar errores 404
-    // if (img.src && !img.srcset) {
-    //   const baseSrc = img.src;
-    //   const webpSrc = baseSrc.replace(/\.(jpg|jpeg|png)$/i, '.webp');
-    //   const avifSrc = baseSrc.replace(/\.(jpg|jpeg|png)$/i, '.avif');
-    //   
-    //   const srcset = `
-    //     ${avifSrc} 1x,
-    //     ${webpSrc} 1x,
-    //     ${baseSrc} 1x
-    //   `;
-    //   
-    //   img.setAttribute('srcset', srcset);
-    // }
-  });
+  // Solo agregar formatos modernos si existen realmente
+  // Por ahora, deshabilitamos la compresión automática para evitar errores 404
+  // const images = document.querySelectorAll('img');
+  // images.forEach(img => {
+  //   if (img.src && !img.srcset) {
+  //     const baseSrc = img.src;
+  //     const webpSrc = baseSrc.replace(/\.(jpg|jpeg|png)$/i, '.webp');
+  //     const avifSrc = baseSrc.replace(/\.(jpg|jpeg|png)$/i, '.avif');
+  //     
+  //     const srcset = `
+  //       ${avifSrc} 1x,
+  //       ${webpSrc} 1x,
+  //       ${baseSrc} 1x
+  //     `;
+  //     
+  //     img.setAttribute('srcset', srcset);
+  //   }
+  // });
 }
 
 /**

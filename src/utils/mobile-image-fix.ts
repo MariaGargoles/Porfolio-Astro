@@ -79,7 +79,7 @@ export function fixMobileImageDisplay(): void {
   // Corregir contenedores de proyectos
   const projectItems = document.querySelectorAll('.project-item');
   projectItems.forEach(item => {
-    const sliderContainer = item.querySelector('.slider-container');
+    const sliderContainer = item.querySelector('.slider-container') as HTMLElement;
     if (sliderContainer) {
       // Asegurar altura mínima
       if (!sliderContainer.style.minHeight) {
@@ -137,21 +137,23 @@ export function fixMobileSliderHeight(): void {
 
   const sliders = document.querySelectorAll('.slider-container');
   sliders.forEach(slider => {
+    const sliderElement = slider as HTMLElement;
     // Asegurar altura mínima
-    slider.style.minHeight = '200px';
+    sliderElement.style.minHeight = '200px';
     
-    const sliderElement = slider.querySelector('.slider');
-    if (sliderElement) {
-      sliderElement.style.minHeight = '200px';
+    const sliderDiv = sliderElement.querySelector('.slider') as HTMLElement;
+    if (sliderDiv) {
+      sliderDiv.style.minHeight = '200px';
       
       // Corregir divs internos
-      const sliderDivs = sliderElement.querySelectorAll('div');
+      const sliderDivs = sliderDiv.querySelectorAll('div');
       sliderDivs.forEach(div => {
-        div.style.minHeight = '200px';
-        div.style.display = 'flex';
-        div.style.alignItems = 'center';
-        div.style.justifyContent = 'center';
-        div.style.overflow = 'hidden';
+        const divElement = div as HTMLElement;
+        divElement.style.minHeight = '200px';
+        divElement.style.display = 'flex';
+        divElement.style.alignItems = 'center';
+        divElement.style.justifyContent = 'center';
+        divElement.style.overflow = 'hidden';
       });
     }
   });
