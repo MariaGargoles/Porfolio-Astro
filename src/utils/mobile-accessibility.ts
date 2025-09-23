@@ -34,15 +34,18 @@ export function enhanceTouchNavigation(): void {
     let isDragging = false;
 
     slider.addEventListener('touchstart', (e) => {
-      startX = e.touches[0].clientX;
+      const touchEvent = e as TouchEvent;
+      startX = touchEvent.touches[0].clientX;
       isDragging = true;
-      slider.style.transition = 'none';
+      const sliderElement = slider as HTMLElement;
+      sliderElement.style.transition = 'none';
     });
 
     slider.addEventListener('touchmove', (e) => {
       if (!isDragging) return;
       
-      currentX = e.touches[0].clientX;
+      const touchEvent = e as TouchEvent;
+      currentX = touchEvent.touches[0].clientX;
       const deltaX = currentX - startX;
       
       const sliderElement = slider.querySelector('.slider') as HTMLElement;
@@ -56,11 +59,12 @@ export function enhanceTouchNavigation(): void {
       }
     });
 
-    slider.addEventListener('touchend', (e) => {
+    slider.addEventListener('touchend', (_e) => {
       if (!isDragging) return;
       
       isDragging = false;
-      slider.style.transition = 'transform 0.3s ease';
+      const sliderElement = slider as HTMLElement;
+      sliderElement.style.transition = 'transform 0.3s ease';
       
       const deltaX = currentX - startX;
       const threshold = 50;
@@ -104,8 +108,9 @@ export function enhanceMobileForms(): void {
       
       // Mejorar navegación entre campos
       input.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' && input.tagName !== 'TEXTAREA') {
-          e.preventDefault();
+        const keyboardEvent = e as KeyboardEvent;
+        if (keyboardEvent.key === 'Enter' && input.tagName !== 'TEXTAREA') {
+          keyboardEvent.preventDefault();
           const nextInput = getNextInput(input);
           if (nextInput) {
             nextInput.focus();

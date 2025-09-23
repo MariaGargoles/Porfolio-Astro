@@ -157,7 +157,7 @@ export function initializeAccessibility() {
 /**
  * Valida el contraste de colores según WCAG
  */
-export function validateColorContrast(foreground: string, background: string): boolean {
+export function validateColorContrast(_foreground: string, _background: string): boolean {
   // Implementación básica - en un proyecto real se usaría una librería como color-contrast
   // Por ahora retornamos true asumiendo que los colores son accesibles
   return true;
