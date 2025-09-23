@@ -81,8 +81,9 @@ export function optimizeRenderBlocking(): void {
   // Mover scripts no críticos al final
   const nonCriticalScripts = document.querySelectorAll('script[src*="accessibility"], script[src*="mobile"]');
   nonCriticalScripts.forEach(script => {
-    script.async = true;
-    script.defer = true;
+    const scriptElement = script as HTMLScriptElement;
+    scriptElement.async = true;
+    scriptElement.defer = true;
   });
   
   // Optimizar carga de CSS
@@ -164,18 +165,20 @@ export function optimizeExternalResources(): void {
   // Cargar Google Fonts de forma asíncrona
   const fontLinks = document.querySelectorAll('link[href*="fonts.googleapis.com"]');
   fontLinks.forEach(link => {
-    link.rel = 'preload';
-    link.as = 'style';
-    link.onload = function() {
-      this.rel = 'stylesheet';
+    const linkElement = link as HTMLLinkElement;
+    linkElement.rel = 'preload';
+    linkElement.as = 'style';
+    linkElement.onload = function() {
+      (this as HTMLLinkElement).rel = 'stylesheet';
     };
   });
   
   // Optimizar iconos
   const iconLinks = document.querySelectorAll('link[rel="icon"]');
   iconLinks.forEach(link => {
-    link.rel = 'icon';
-    link.type = 'image/svg+xml';
+    const linkElement = link as HTMLLinkElement;
+    linkElement.rel = 'icon';
+    linkElement.type = 'image/svg+xml';
   });
 }
 
