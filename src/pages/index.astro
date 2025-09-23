@@ -45,10 +45,18 @@ import "@fontsource-variable/syne";
   </head>
   <body>
     <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+    <a href="#navigation" class="skip-link">Saltar a la navegación</a>
+    <a href="#projects" class="skip-link">Saltar a los proyectos</a>
     <Header />
-    <main id="main-content" role="main">
+    <main
+      id="main-content"
+      role="main"
+      aria-label="Contenido principal del portfolio"
+    >
       <MainComponent />
-      <Proyects />
+      <section id="projects" aria-labelledby="projects-heading">
+        <Proyects />
+      </section>
     </main>
     <Footer />
     <slot />
@@ -189,5 +197,153 @@ import "@fontsource-variable/syne";
   }
   html.dark footer {
     box-shadow: 0em -0.31em 1.4em 0em rgba(255, 255, 255, 0.15);
+  }
+
+  /* Mejorar accesibilidad de skip links */
+  .skip-link {
+    position: absolute;
+    top: -40px;
+    left: 6px;
+    background: var(--accent);
+    color: white;
+    padding: 8px;
+    text-decoration: none;
+    border-radius: 4px;
+    z-index: 1000;
+    transition: top 0.3s;
+    font-weight: bold;
+  }
+
+  .skip-link:focus {
+    top: 6px;
+  }
+
+  /* Mejorar accesibilidad de landmarks */
+  [role="main"] {
+    outline: none;
+  }
+
+  [role="banner"] {
+    outline: none;
+  }
+
+  [role="contentinfo"] {
+    outline: none;
+  }
+
+  [role="navigation"] {
+    outline: none;
+  }
+
+  [role="region"] {
+    outline: none;
+  }
+
+  [role="article"] {
+    outline: none;
+  }
+
+  /* Mejorar accesibilidad de elementos interactivos */
+  button:focus-visible,
+  a:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible {
+    outline: 2px solid #0066cc;
+    outline-offset: 2px;
+  }
+
+  html.dark button:focus-visible,
+  html.dark a:focus-visible,
+  html.dark input:focus-visible,
+  html.dark textarea:focus-visible,
+  html.dark select:focus-visible {
+    outline: 2px solid #66b3ff;
+    outline-offset: 2px;
+  }
+
+  /* Mejorar contraste de texto */
+  .text-muted {
+    color: #666666;
+  }
+
+  html.dark .text-muted {
+    color: #cccccc;
+  }
+
+  /* Mejorar accesibilidad de imágenes */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Mejorar accesibilidad de enlaces */
+  a {
+    color: inherit;
+    text-decoration: underline;
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+
+  /* Mejorar accesibilidad de botones */
+  button {
+    cursor: pointer;
+  }
+
+  button:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+
+  /* Mejorar accesibilidad de formularios */
+  input,
+  textarea,
+  select {
+    font-size: 16px;
+  }
+
+  /* Mejorar accesibilidad de listas */
+  ul,
+  ol {
+    padding-left: 1.5em;
+  }
+
+  li {
+    margin-bottom: 0.5em;
+  }
+
+  /* Mejorar accesibilidad de tablas */
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  th,
+  td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+
+  th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+  }
+
+  html.dark th {
+    background-color: #333;
+  }
+
+  /* Mejorar accesibilidad de videos */
+  video {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Mejorar accesibilidad de audio */
+  audio {
+    width: 100%;
   }
 </style>

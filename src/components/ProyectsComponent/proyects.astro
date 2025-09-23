@@ -118,7 +118,12 @@ const withBase = (p: string) =>
   });
 </script>
 
-<section class="container mx-auto px-4 py-8" aria-labelledby="projects-heading">
+<section
+  class="container mx-auto px-4 py-8"
+  aria-labelledby="projects-heading"
+  role="region"
+  aria-label="Galería de proyectos desarrollados"
+>
   <h2
     id="projects-heading"
     class="text-3xl font-syne font-bold mb-6 text-center"
@@ -129,8 +134,13 @@ const withBase = (p: string) =>
     <!-- Project 1 -->
     <article
       class="project-item border rounded-lg p-4 shadow-md slider-container"
+      role="article"
+      aria-labelledby="project-1-heading"
     >
-      <h3 class="text-xl font-semibold flex justify-center items-center mb-4">
+      <h3
+        id="project-1-heading"
+        class="text-xl font-semibold flex justify-center items-center mb-4"
+      >
         Creación Independiente
       </h3>
       <div
@@ -264,8 +274,13 @@ const withBase = (p: string) =>
     <!-- Project 2 -->
     <article
       class="project-item border rounded-lg p-4 shadow-md slider-container"
+      role="article"
+      aria-labelledby="project-2-heading"
     >
-      <h3 class="text-xl font-syne flex justify-center font-semibold mb-4">
+      <h3
+        id="project-2-heading"
+        class="text-xl font-syne flex justify-center font-semibold mb-4"
+      >
         MusicAdders
       </h3>
       <div

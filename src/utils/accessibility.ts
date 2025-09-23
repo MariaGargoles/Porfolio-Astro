@@ -106,6 +106,11 @@ export function initializeAccessibility() {
     module.initializeMobileAccessibility();
   });
 
+  // Cargar mejoras avanzadas de accesibilidad
+  import('./advanced-accessibility').then(module => {
+    module.initializeAdvancedAccessibility();
+  });
+
   // Agregar indicadores de estado para elementos interactivos
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Tab') {

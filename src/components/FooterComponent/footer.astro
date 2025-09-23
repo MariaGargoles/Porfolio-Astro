@@ -7,9 +7,11 @@ import { FaLaptopCode } from "react-icons/fa";
 <footer
   class="w-full text-2xl flex justify-between items-center px-4 py-2 fixed bottom-0"
   role="contentinfo"
+  aria-label="Información de contacto y enlaces a redes sociales"
 >
-  <div aria-label="Logo del portfolio">
-    <FaLaptopCode />
+  <div aria-label="Logo del portfolio" role="img">
+    <FaLaptopCode aria-hidden="true" />
+    <span class="sr-only">María Gargoles - Desarrolladora Full Stack</span>
   </div>
   <nav
     class="flex-2 flex justify-center gap-4 items-center"
@@ -19,20 +21,22 @@ import { FaLaptopCode } from "react-icons/fa";
     <a
       href="https://github.com/MariaGargoles"
       class="hover:scale-110 rounded-lg transition duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-      aria-label="Visitar perfil de GitHub de María Gargoles"
+      aria-label="Visitar perfil de GitHub de María Gargoles (se abre en nueva ventana)"
       target="_blank"
       rel="noopener noreferrer"
     >
-      <FaGithub />
+      <FaGithub aria-hidden="true" />
+      <span class="sr-only">GitHub</span>
     </a>
     <a
       href="#"
       class="hover:scale-110 rounded-lg transition duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-      aria-label="Visitar perfil de LinkedIn de María Gargoles"
+      aria-label="Visitar perfil de LinkedIn de María Gargoles (se abre en nueva ventana)"
       target="_blank"
       rel="noopener noreferrer"
     >
-      <FaLinkedin />
+      <FaLinkedin aria-hidden="true" />
+      <span class="sr-only">LinkedIn</span>
     </a>
   </nav>
 </footer>
