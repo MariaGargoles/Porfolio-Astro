@@ -111,6 +111,11 @@ export function initializeAccessibility() {
     module.initializeAdvancedAccessibility();
   });
 
+  // Cargar optimizaciones de rendimiento
+  import('./performance-optimization').then(module => {
+    module.initializePerformanceOptimization();
+  });
+
   // Agregar indicadores de estado para elementos interactivos
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Tab') {

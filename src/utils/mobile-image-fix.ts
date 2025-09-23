@@ -30,7 +30,10 @@ export function fixMobileImageDisplay(): void {
     
     // Agregar fallback para imágenes que no cargan
     img.addEventListener('error', () => {
-      console.warn('Imagen no pudo cargar:', img.src);
+      // Solo mostrar warning en desarrollo
+      if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+        console.warn('Imagen no pudo cargar:', img.src);
+      }
       
       // Solo crear placeholder si no existe ya uno
       if (!img.parentNode?.querySelector('.image-placeholder')) {
