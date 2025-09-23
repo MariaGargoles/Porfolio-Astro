@@ -15,8 +15,16 @@ import MainProyects from "../components/PageProyectsComponent/mainproyects.astro
 <html lang="es" class="light">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
-    <meta name="viewport" content="width=device-width" />
+    <meta
+      name="description"
+      content="Proyectos de María Gargoles - Desarrolladora Full Stack freelance. Conoce mis trabajos en React, Node.js, MongoDB y más tecnologías"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="María Gargoles Lajarin" />
+    <meta
+      name="keywords"
+      content="proyectos, desarrolladora, full stack, freelance, React, Node.js, MongoDB, portfolio, trabajos"
+    />
     <link
       rel="icon"
       type="image/svg+xml"
@@ -36,14 +44,46 @@ import MainProyects from "../components/PageProyectsComponent/mainproyects.astro
     </script>
   </head>
   <body>
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
     <Header />
-    <MainProyects />
+    <main id="main-content" role="main">
+      <MainProyects />
+    </main>
     <Footer class="fixed-footer" />
     <slot />
   </body>
 </html>
 
 <style is:global>
+  .skip-link {
+    position: absolute;
+    top: -40px;
+    left: 6px;
+    background: var(--accent);
+    color: white;
+    padding: 8px;
+    text-decoration: none;
+    border-radius: 4px;
+    z-index: 1000;
+    transition: top 0.3s;
+  }
+
+  .skip-link:focus {
+    top: 6px;
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
   :root {
     --accent: 136, 58, 234;
     --accent-light: 224, 204, 250;

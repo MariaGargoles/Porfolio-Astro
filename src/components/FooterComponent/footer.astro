@@ -6,16 +6,32 @@ import { FaLaptopCode } from "react-icons/fa";
 
 <footer
   class="w-full text-2xl flex justify-between items-center px-4 py-2 fixed bottom-0"
+  role="contentinfo"
 >
-  <FaLaptopCode />
-  <nav class="flex-2 flex justify-center gap-4 items-center">
+  <div aria-label="Logo del portfolio">
+    <FaLaptopCode />
+  </div>
+  <nav
+    class="flex-2 flex justify-center gap-4 items-center"
+    role="navigation"
+    aria-label="Enlaces a redes sociales"
+  >
     <a
       href="https://github.com/MariaGargoles"
-      class="hover:scale-110 rounded-lg transition duration-300"
+      class="hover:scale-110 rounded-lg transition duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+      aria-label="Visitar perfil de GitHub de María Gargoles"
+      target="_blank"
+      rel="noopener noreferrer"
     >
       <FaGithub />
     </a>
-    <a href="#" class="hover:scale-110 rounded-lg transition duration-300">
+    <a
+      href="#"
+      class="hover:scale-110 rounded-lg transition duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+      aria-label="Visitar perfil de LinkedIn de María Gargoles"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       <FaLinkedin />
     </a>
   </nav>

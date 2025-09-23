@@ -15,8 +15,9 @@ import { FaRegMoon } from "react-icons/fa";
 
 <button
   id="theme-toggle"
-  aria-label="Toggle light/dark mode"
-  class="p-3 rounded-full hover:bg-gray-200 dark:hover:bg-gray-800 hover:scale-110 transition duration-300"
+  aria-label="Alternar entre modo claro y oscuro"
+  class="p-3 rounded-full hover:bg-gray-200 dark:hover:bg-gray-800 hover:scale-110 transition duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+  type="button"
 >
-  <FaRegMoon style={{ fontSize: "1.3rem" }} />
+  <FaRegMoon style={{ fontSize: "1.3rem" }} aria-hidden="true" />
 </button>

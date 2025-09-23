@@ -5,7 +5,9 @@ import { GrDocumentDownload } from "react-icons/gr";
 <a
   href="/assets/CVMariaGargolesL.pdf"
   download="MariaGargoles"
-  class="hover:scale-110 transition duration-300 flex items-center gap-2"
+  class="hover:scale-110 transition duration-300 flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-lg p-2"
+  aria-label="Descargar currículum vitae de María Gargoles en formato PDF"
 >
-  <GrDocumentDownload style={{ fontSize: "1.3rem" }} />
+  <GrDocumentDownload style={{ fontSize: "1.3rem" }} aria-hidden="true" />
+  <span class="sr-only">Descargar CV</span>
 </a>

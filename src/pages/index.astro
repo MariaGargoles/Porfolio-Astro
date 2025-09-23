@@ -16,8 +16,16 @@ import "@fontsource-variable/syne";
 <html lang="es" class="light">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
-    <meta name="viewport" content="width=device-width" />
+    <meta
+      name="description"
+      content="Portfolio de María Gargoles - Desarrolladora Full Stack freelance con experiencia en React, Node.js, MongoDB y más tecnologías"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="María Gargoles Lajarin" />
+    <meta
+      name="keywords"
+      content="desarrolladora, full stack, freelance, React, Node.js, MongoDB, portfolio"
+    />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
@@ -27,17 +35,56 @@ import "@fontsource-variable/syne";
         document.documentElement.className = theme;
       })();
     </script>
+    <script>
+      // Inicializar mejoras de accesibilidad
+      import { initializeAccessibility } from "../utils/accessibility.ts";
+      document.addEventListener("DOMContentLoaded", () => {
+        initializeAccessibility();
+      });
+    </script>
   </head>
   <body>
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
     <Header />
-    <MainComponent />
-    <Proyects />
+    <main id="main-content" role="main">
+      <MainComponent />
+      <Proyects />
+    </main>
     <Footer />
     <slot />
   </body>
 </html>
 
 <style is:global>
+  .skip-link {
+    position: absolute;
+    top: -40px;
+    left: 6px;
+    background: var(--accent);
+    color: white;
+    padding: 8px;
+    text-decoration: none;
+    border-radius: 4px;
+    z-index: 1000;
+    transition: top 0.3s;
+  }
+
+  .skip-link:focus {
+    top: 6px;
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
   :root {
     --accent: 136, 58, 234;
     --accent-light: 224, 204, 250;
@@ -45,8 +92,8 @@ import "@fontsource-variable/syne";
   }
 
   html.light {
-    --background-color: #ecf0f1;
-    --text-color: #1c2833;
+    --background-color: #ffffff;
+    --text-color: #1a1a1a;
     --accent-gradient: linear-gradient(
       45deg,
       rgb(var(--accent)),
@@ -59,12 +106,18 @@ import "@fontsource-variable/syne";
     background-color: rgb(179, 182, 183);
   }
 
+  html.light nav a:focus {
+    background-color: rgb(179, 182, 183);
+    outline: 2px solid #0066cc;
+    outline-offset: 2px;
+  }
+
   html.light footer {
   }
 
   html.dark {
-    --background-color: #212121;
-    --text-color: #f7f9f9;
+    --background-color: #1a1a1a;
+    --text-color: #ffffff;
     --accent-gradient: linear-gradient(
       45deg,
       rgb(var(--accent-dark)),
@@ -75,6 +128,12 @@ import "@fontsource-variable/syne";
 
   html.dark nav a:hover {
     background-color: rgb(82, 82, 82);
+  }
+
+  html.dark nav a:focus {
+    background-color: rgb(82, 82, 82);
+    outline: 2px solid #66b3ff;
+    outline-offset: 2px;
   }
 
   html.light header {
@@ -96,6 +155,34 @@ import "@fontsource-variable/syne";
     transition:
       background-color 0.3s ease,
       color 0.3s ease;
+  }
+
+  /* Mejorar contraste para elementos interactivos */
+  button:focus,
+  a:focus,
+  input:focus,
+  textarea:focus,
+  select:focus {
+    outline: 2px solid #0066cc;
+    outline-offset: 2px;
+  }
+
+  html.dark button:focus,
+  html.dark a:focus,
+  html.dark input:focus,
+  html.dark textarea:focus,
+  html.dark select:focus {
+    outline: 2px solid #66b3ff;
+    outline-offset: 2px;
+  }
+
+  /* Mejorar contraste de texto */
+  .text-muted {
+    color: #666666;
+  }
+
+  html.dark .text-muted {
+    color: #cccccc;
   }
   html.light footer {
     box-shadow: 0em -0.31em 2.4em 0em rgba(0, 0, 0, 0.5);
