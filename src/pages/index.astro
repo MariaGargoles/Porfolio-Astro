@@ -236,12 +236,17 @@ import "@fontsource-variable/syne";
     left: 6px;
     background: var(--accent);
     color: white;
-    padding: 8px;
+    padding: 12px 16px;
     text-decoration: none;
     border-radius: 4px;
     z-index: 1000;
     transition: top 0.3s;
     font-weight: bold;
+    min-height: 44px;
+    min-width: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .skip-link:focus {
@@ -423,5 +428,48 @@ import "@fontsource-variable/syne";
   /* Mejorar accesibilidad de audio */
   audio {
     width: 100%;
+  }
+
+  /* Mejorar contraste de badges de tecnologías */
+  .tech-badge {
+    min-height: 44px;
+    min-width: 44px;
+    padding: 12px 16px;
+    margin: 4px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  /* Colores con mejor contraste para badges */
+  .bg-blue-600 {
+    background-color: #2563eb;
+  }
+  .bg-yellow-600 {
+    background-color: #ca8a04;
+  }
+  .bg-orange-700 {
+    background-color: #c2410c;
+  }
+  .bg-pink-600 {
+    background-color: #db2777;
+  }
+  .bg-green-600 {
+    background-color: #16a34a;
+  }
+  .bg-purple-600 {
+    background-color: #9333ea;
+  }
+  .bg-red-600 {
+    background-color: #dc2626;
+  }
+
+  /* Asegurar contraste suficiente en modo oscuro */
+  html.dark .tech-badge {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   }
 </style>
