@@ -101,6 +101,11 @@ export function initializeAccessibility() {
   link.href = '/src/styles/accessibility.css';
   document.head.appendChild(link);
 
+  // Cargar mejoras específicas para móviles
+  import('./mobile-accessibility').then(module => {
+    module.initializeMobileAccessibility();
+  });
+
   // Agregar indicadores de estado para elementos interactivos
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Tab') {

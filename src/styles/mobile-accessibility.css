@@ -1,0 +1,540 @@
+/* Estilos de accesibilidad específicos para móviles */
+
+/* Mejoras para navegación táctil */
+@media (max-width: 768px) {
+  /* Tamaños mínimos de toque (44px según WCAG) */
+  button,
+  a,
+  input[type="button"],
+  input[type="submit"],
+  input[type="reset"],
+  [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+    padding: 12px 16px;
+  }
+
+  /* Mejorar espaciado entre elementos interactivos */
+  .interactive-element {
+    margin: 8px 0;
+  }
+
+  /* Navegación por gestos mejorada */
+  .swipe-container {
+    touch-action: pan-x;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Mejorar contraste en pantallas pequeñas */
+  body {
+    font-size: 16px; /* Prevenir zoom automático en iOS */
+    line-height: 1.5;
+  }
+
+  /* Mejorar legibilidad del texto */
+  p, li, span {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  /* Mejorar contraste de enlaces */
+  a {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 2px;
+  }
+
+  /* Mejorar formularios en móviles */
+  input,
+  textarea,
+  select {
+    font-size: 16px; /* Prevenir zoom en iOS */
+    padding: 12px 16px;
+    border-radius: 8px;
+    border: 2px solid #e5e7eb;
+    min-height: 44px;
+  }
+
+  input:focus,
+  textarea:focus,
+  select:focus {
+    border-color: #3b82f6;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  }
+
+  /* Mejorar botones en móviles */
+  button {
+    font-size: 16px;
+    padding: 12px 24px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  button:active {
+    transform: scale(0.98);
+  }
+
+  /* Mejorar navegación del header en móviles */
+  .mobile-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 16px;
+  }
+
+  .mobile-nav a {
+    display: block;
+    padding: 16px;
+    text-align: center;
+    border-radius: 8px;
+    background-color: #f3f4f6;
+    color: #1f2937;
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .mobile-nav a:hover,
+  .mobile-nav a:focus {
+    background-color: #e5e7eb;
+    outline: 2px solid #3b82f6;
+    outline-offset: 2px;
+  }
+
+  /* Mejorar sliders en móviles */
+  .slider-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+  }
+
+  .slider {
+    display: flex;
+    transition: transform 0.3s ease;
+  }
+
+  .slider-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    z-index: 10;
+  }
+
+  .slider-button:active {
+    background: rgba(0, 0, 0, 0.9);
+  }
+
+  .slider-button.prev {
+    left: 8px;
+  }
+
+  .slider-button.next {
+    right: 8px;
+  }
+
+  /* Mejorar imágenes en móviles */
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+  }
+
+  /* Optimizar imágenes en sliders */
+  .slider img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+  }
+
+  /* Mejorar contenedores de imágenes */
+  .slider > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  /* Asegurar que las imágenes se vean en móviles */
+  .slider-container {
+    min-height: 200px;
+  }
+
+  .slider-container .slider {
+    min-height: 200px;
+  }
+
+  .slider-container .slider > div {
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Mejorar videos en móviles */
+  video {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+
+  /* Mejorar contenedores de proyectos */
+  .project-item {
+    margin-bottom: 24px;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  /* Mejorar texto en móviles */
+  h1 {
+    font-size: 28px;
+    line-height: 1.3;
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    font-size: 24px;
+    line-height: 1.3;
+    margin-bottom: 12px;
+  }
+
+  h3 {
+    font-size: 20px;
+    line-height: 1.4;
+    margin-bottom: 8px;
+  }
+
+  /* Mejorar espaciado en móviles */
+  .container {
+    padding: 16px;
+  }
+
+  .section {
+    margin-bottom: 32px;
+  }
+
+  /* Mejorar formularios en móviles */
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #374151;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Mejorar mensajes de error en móviles */
+  .error-message {
+    color: #dc2626;
+    font-size: 14px;
+    margin-top: 4px;
+    display: block;
+  }
+
+  .success-message {
+    color: #16a34a;
+    font-size: 14px;
+    margin-top: 4px;
+    display: block;
+  }
+
+  /* Mejorar skip links en móviles */
+  .skip-link {
+    position: absolute;
+    top: -40px;
+    left: 16px;
+    right: 16px;
+    background: #3b82f6;
+    color: white;
+    padding: 12px 16px;
+    text-align: center;
+    border-radius: 8px;
+    font-weight: 600;
+    z-index: 1000;
+  }
+
+  .skip-link:focus {
+    top: 16px;
+  }
+
+  /* Mejorar indicadores de foco en móviles */
+  *:focus {
+    outline: 3px solid #3b82f6;
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  /* Mejorar accesibilidad de listas */
+  ul, ol {
+    padding-left: 20px;
+  }
+
+  li {
+    margin-bottom: 8px;
+  }
+
+  /* Mejorar tablas en móviles */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+
+  th, td {
+    padding: 12px 8px;
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  th {
+    background-color: #f9fafb;
+    font-weight: 600;
+  }
+
+  /* Mejorar modales en móviles */
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    z-index: 1000;
+  }
+
+  .modal-content {
+    background: white;
+    border-radius: 12px;
+    padding: 24px;
+    max-width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  /* Mejorar accesibilidad de iconos */
+  .icon {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+  }
+
+  /* Mejorar accesibilidad de botones de acción */
+  .action-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    background: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    min-height: 44px;
+    justify-content: center;
+  }
+
+  .action-button:hover,
+  .action-button:focus {
+    background: #2563eb;
+    outline: 2px solid #1d4ed8;
+    outline-offset: 2px;
+  }
+
+  .action-button:active {
+    transform: scale(0.98);
+  }
+
+  /* Mejorar accesibilidad de enlaces externos */
+  a[target="_blank"]::after {
+    content: " (se abre en nueva ventana)";
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+
+  /* Mejorar accesibilidad de formularios */
+  fieldset {
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 20px;
+  }
+
+  legend {
+    font-weight: 600;
+    padding: 0 8px;
+    color: #374151;
+  }
+
+  /* Mejorar accesibilidad de grupos de radio/checkbox */
+  .radio-group,
+  .checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .radio-group label,
+  .checkbox-group label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .radio-group label:hover,
+  .checkbox-group label:hover {
+    background-color: #f3f4f6;
+  }
+
+  /* Mejorar accesibilidad de sliders personalizados */
+  .range-slider {
+    width: 100%;
+    height: 44px;
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  .range-slider::-webkit-slider-track {
+    background: #e5e7eb;
+    height: 8px;
+    border-radius: 4px;
+  }
+
+  .range-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 24px;
+    width: 24px;
+    border-radius: 50%;
+    background: #3b82f6;
+    cursor: pointer;
+    border: 2px solid white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .range-slider::-moz-range-track {
+    background: #e5e7eb;
+    height: 8px;
+    border-radius: 4px;
+    border: none;
+  }
+
+  .range-slider::-moz-range-thumb {
+    height: 24px;
+    width: 24px;
+    border-radius: 50%;
+    background: #3b82f6;
+    cursor: pointer;
+    border: 2px solid white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* Mejoras específicas para pantallas muy pequeñas */
+@media (max-width: 480px) {
+  .container {
+    padding: 12px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  h3 {
+    font-size: 18px;
+  }
+
+  .mobile-nav a {
+    padding: 12px;
+    font-size: 16px;
+  }
+
+  .action-button {
+    padding: 10px 16px;
+    font-size: 14px;
+  }
+
+  .slider-button {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+}
+
+/* Mejoras para orientación landscape en móviles */
+@media (max-width: 768px) and (orientation: landscape) {
+  .mobile-nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .mobile-nav a {
+    flex: 1;
+    min-width: 120px;
+  }
+
+  .slider-container {
+    height: 200px;
+  }
+}
+
+/* Mejoras para dispositivos con pantalla táctil */
+@media (hover: none) and (pointer: coarse) {
+  /* Remover efectos hover en dispositivos táctiles */
+  .hover-effect:hover {
+    transform: none;
+  }
+
+  /* Mejorar feedback táctil */
+  .touchable {
+    -webkit-tap-highlight-color: rgba(59, 130, 246, 0.2);
+    tap-highlight-color: rgba(59, 130, 246, 0.2);
+  }
+
+  /* Mejorar navegación por gestos */
+  .swipeable {
+    touch-action: pan-x pan-y;
+    -webkit-overflow-scrolling: touch;
+  }
+}

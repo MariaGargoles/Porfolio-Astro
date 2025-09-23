@@ -20,7 +20,7 @@ const current = Astro.url.pathname;
   role="banner"
 >
   <nav
-    class="w-full sm:flex-1 flex justify-evenly gap-4 items-center"
+    class="w-full sm:flex-1 flex justify-evenly gap-4 items-center mobile-nav"
     role="navigation"
     aria-label="Navegación principal"
   >
@@ -33,7 +33,8 @@ const current = Astro.url.pathname;
             href={url}
             aria-current={isActive ? "page" : undefined}
             class={`font-cinzel font-bold text-xl px-4 py-2 rounded-lg transition duration-300
-                  hover:opacity-80 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 ${isActive ? "underline underline-offset-8" : ""}`}
+                  hover:opacity-80 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 
+                  min-h-[44px] flex items-center justify-center touchable ${isActive ? "underline underline-offset-8" : ""}`}
           >
             {label}
           </a>
@@ -46,7 +47,9 @@ const current = Astro.url.pathname;
     role="toolbar"
     aria-label="Herramientas de usuario"
   >
-    <DCVButton class="text-2xl w-12 h-12" />
-    <Buttonlight class="w-10 h-10 hover:scale-110 transition duration-300" />
+    <DCVButton class="text-2xl w-12 h-12 min-h-[44px] min-w-[44px] touchable" />
+    <Buttonlight
+      class="w-10 h-10 min-h-[44px] min-w-[44px] hover:scale-110 transition duration-300 touchable"
+    />
   </div>
 </header>
