@@ -3,12 +3,15 @@ const withBase = (p: string) =>
   `${import.meta.env.BASE_URL.replace(/\/+$/, "/")}${p.replace(/^\/+/, "")}`;
 ---
 
-<main class="p-12">
+<main class="p-12" role="main">
   <section
     class="flex flex-col items-center border rounded-lg p-12 w-full max-w-3xl mx-auto shadow-lg"
+    aria-labelledby="about-heading"
   >
     <article class="flex flex-col items-center text-center">
-      <h2 class="pb-3 font-cinzel text-2xl font-bold">¡Conóceme!</h2>
+      <h1 id="about-heading" class="pb-3 font-cinzel text-2xl font-bold">
+        ¡Conóceme!
+      </h1>
       <p class="font-roboto text-sm md:text-base leading-relaxed">
         En este video quiero compartir un poco sobre mí: quién soy, cómo llegué
         al mundo del desarrollo web y qué me apasiona de esta profesión. <br
@@ -24,14 +27,35 @@ const withBase = (p: string) =>
 
     <!-- Video -->
     <article class="flex flex-col items-center my-8 w-full">
-      <video class="rounded-lg shadow-lg w-full max-w-3xl h-auto" controls>
-        <source src="/assets/Presentacion.mp4" type="video/mp4" />
-        Tu navegador no soporta reproducción de video.
-      </video>
+      <div class="relative">
+        <video
+          class="rounded-lg shadow-lg w-full max-w-3xl h-auto focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+          controls
+          aria-label="Video de presentación de María Gargoles"
+          preload="metadata"
+        >
+          <source src="/assets/Presentacion.mp4" type="video/mp4" />
+          <track
+            kind="captions"
+            src="/assets/Presentacion.vtt"
+            srclang="es"
+            label="Español"
+            default
+          />
+          Tu navegador no soporta reproducción de video.
+        </video>
+        <div class="sr-only">
+          <p>
+            Video de presentación de María Gargoles, desarrolladora Full Stack.
+            Duración aproximada: 3 minutos. Contenido: presentación personal y
+            experiencia profesional.
+          </p>
+        </div>
+      </div>
     </article>
 
     <article class="flex flex-col items-center text-center">
-      <h2 class="pb-3 font-cinzel text-2xl font-bold">Sobre Mi</h2>
+      <h2 class="pb-3 font-cinzel text-2xl font-bold">Sobre Mí</h2>
       <div class="font-roboto text-sm md:text-base leading-relaxed space-y-4">
         <p>
           ¡Hola! Soy María, una desarrolladora web full stack con una curiosidad
@@ -73,9 +97,10 @@ const withBase = (p: string) =>
            bg-blue-500 text-white hover:bg-blue-600
            transition duration-200
            dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600
-           inline-block"
+           inline-block focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+      aria-label="Volver a la página principal"
     >
-      Back Home
+      Volver al Inicio
     </a>
   </div>
 </main>

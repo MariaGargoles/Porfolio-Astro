@@ -46,44 +46,71 @@ const withBase = (p: string) =>
   });
 </script>
 
-<section class="container mx-auto px-4 py-8">
-  <h2 class="text-3xl font-syne font-bold mb-6 text-center">Last Projects</h2>
+<section class="container mx-auto px-4 py-8" aria-labelledby="projects-heading">
+  <h1
+    id="projects-heading"
+    class="text-3xl font-syne font-bold mb-6 text-center"
+  >
+    Últimos Proyectos
+  </h1>
   <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
     <!-- Project 1 -->
-    <div class="project-item border rounded-lg p-4 shadow-md slider-container">
+    <article
+      class="project-item border rounded-lg p-4 shadow-md slider-container"
+    >
       <h2 class="text-xl font-semibold flex justify-center items-center mb-4">
         Dycle
       </h2>
-      <div class="relative overflow-hidden">
+      <div
+        class="relative overflow-hidden"
+        role="img"
+        aria-label="Galería de imágenes del proyecto Dycle"
+      >
         <div class="slider flex transition-transform duration-300">
           <div
             class="min-w-full h-[30vh] bg-red-500 flex justify-center items-center text-white text-2xl font-bold"
           >
             <img
               src={withBase("assets/dycle1.png")}
-              alt="Dycle dashboard enviroment"
+              alt="Captura de pantalla del entorno de trabajo del dashboard de Dycle"
+              width="400"
+              height="300"
             />
           </div>
           <div
             class="min-w-full h-[30vh] bg-green-500 flex justify-center items-center text-white text-2xl font-bold"
           >
-            <img src={withBase("assets/dycle3.png")} alt="Dycle card" />
+            <img
+              src={withBase("assets/dycle3.png")}
+              alt="Captura de pantalla de la tarjeta de información de Dycle"
+              width="400"
+              height="300"
+            />
           </div>
           <div
             class="min-w-full h-[30vh] bg-blue-500 flex justify-center items-center text-white text-2xl font-bold"
           >
-            <img src={withBase("assets/dycle2.png")} alt="Dycle dashboard" />
+            <img
+              src={withBase("assets/dycle2.png")}
+              alt="Captura de pantalla del dashboard principal de Dycle"
+              width="400"
+              height="300"
+            />
           </div>
         </div>
         <button
-          class="prev absolute top-1/2 left-2 transform -translate-y-1/2 bg-gray-800 text-white rounded-full w-10 h-10 flex items-center justify-center"
+          class="prev absolute top-1/2 left-2 transform -translate-y-1/2 bg-gray-800 text-white rounded-full w-10 h-10 flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2"
+          aria-label="Imagen anterior del proyecto Dycle"
+          type="button"
         >
-          <GrCaretPrevious className="w-5 h-5" />
+          <GrCaretPrevious className="w-5 h-5" aria-hidden="true" />
         </button>
         <button
-          class="next absolute top-1/2 right-2 transform -translate-y-1/2 bg-gray-800 text-white rounded-full w-10 h-10 flex items-center justify-center"
+          class="next absolute top-1/2 right-2 transform -translate-y-1/2 bg-gray-800 text-white rounded-full w-10 h-10 flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2"
+          aria-label="Imagen siguiente del proyecto Dycle"
+          type="button"
         >
-          <GrCaretNext className="w-5 h-5" />
+          <GrCaretNext className="w-5 h-5" aria-hidden="true" />
         </button>
       </div>
       <article class="p-8 rounded-lg">
@@ -147,7 +174,7 @@ const withBase = (p: string) =>
           ambiente.
         </p>
       </article>
-    </div>
+    </article>
 
     <!-- Project 2 -->
     <div class="project-item border rounded-lg p-4 shadow-md slider-container">

@@ -95,29 +95,11 @@ export function enhanceSliderKeyboardNavigation(slider: HTMLElement) {
  * Inicializa mejoras de accesibilidad globales
  */
 export function initializeAccessibility() {
-  // Mejorar el contraste de foco para todos los elementos
-  const style = document.createElement('style');
-  style.textContent = `
-    *:focus {
-      outline: 2px solid #0066cc !important;
-      outline-offset: 2px !important;
-    }
-    
-    html.dark *:focus {
-      outline: 2px solid #66b3ff !important;
-      outline-offset: 2px !important;
-    }
-    
-    /* Mejorar contraste de texto */
-    .low-contrast {
-      color: #666666;
-    }
-    
-    html.dark .low-contrast {
-      color: #cccccc;
-    }
-  `;
-  document.head.appendChild(style);
+  // Cargar estilos de accesibilidad
+  const link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.href = '/src/styles/accessibility.css';
+  document.head.appendChild(link);
 
   // Agregar indicadores de estado para elementos interactivos
   document.addEventListener('keydown', (e) => {
@@ -129,6 +111,42 @@ export function initializeAccessibility() {
   document.addEventListener('mousedown', () => {
     document.body.classList.remove('keyboard-navigation');
   });
+
+  // Mejorar navegación por teclado
+  document.addEventListener('keydown', (e) => {
+    // Escape para cerrar modales o volver
+    if (e.key === 'Escape') {
+      const activeElement = document.activeElement as HTMLElement;
+      if (activeElement && activeElement.blur) {
+        activeElement.blur();
+      }
+    }
+  });
+
+  // Mejorar accesibilidad de enlaces externos
+  const externalLinks = document.querySelectorAll('a[target="_blank"]');
+  externalLinks.forEach(link => {
+    if (!link.getAttribute('aria-label') && !link.getAttribute('aria-labelledby')) {
+      const text = link.textContent || '';
+      link.setAttribute('aria-label', `${text} (se abre en nueva ventana)`);
+    }
+  });
+
+  // Mejorar accesibilidad de imágenes
+  const images = document.querySelectorAll('img:not([alt])');
+  images.forEach(img => {
+    img.setAttribute('alt', 'Imagen sin descripción');
+  });
+
+  // Agregar soporte para modo de alto contraste
+  if (window.matchMedia && window.matchMedia('(prefers-contrast: high)').matches) {
+    document.body.classList.add('high-contrast');
+  }
+
+  // Agregar soporte para reducción de movimiento
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.body.classList.add('reduced-motion');
+  }
 }
 
 /**
